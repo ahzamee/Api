@@ -20,8 +20,7 @@ class Post{
 		from '.$table;
 
 		$stmt = $this->conn->prepare($query);
-
-		$stmt->execute();
-		return $stmt;
+      	$stmt->execute();
+      	return $stmt;
 	}
 }
