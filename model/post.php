@@ -7,20 +7,23 @@ class Post{
 	public $id;
 	public $currencyId;
 	public $currencyName;
-	public $currencSymbol;
+	public $currencySymbol;
 	public $alpha3;
 	public $name;
 
-	public function __construct($db){
-		$this->conn = $db;
-	}
+	public function __construct($db) {
+      $this->conn = $db;
+    }
 
 	public function read(){
-		$query = 'SELECT id,currencyId,currencyName,currencSymbol,alpha3,name 
-		from '.$table;
+		try{
+		    $query = 'SELECT id,currencyId,currencyName,currencySymbol,alpha3,name FROM country_currency';
 
-		$stmt = $this->conn->prepare($query);
-      	$stmt->execute();
+		    $stmt = $this->conn->prepare($query);
+      	    $stmt->execute();
+		}catch(PDOException $e){
+		    $stmt = "error".$e->getMessage();
+		}
       	return $stmt;
 	}
 }

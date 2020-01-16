@@ -2,10 +2,10 @@
 
 class Database{
 	
-	private $host = 'localhost'
-	private $db_name = 'ahzameec_Currency'
-	private $username = 'ahzameec'
-	private $password = 'Symphony@1992!!ah'
+	private $host = 'localhost';
+	private $db_name = 'ahzameec_Currency';
+	private $username = 'ahzameec';
+	private $password = 'Symphony@1992!!ah';
 	private $conn;
 
 	public function connect()
@@ -19,6 +19,6 @@ class Database{
 		}catch(PDOException $e){
         	echo 'Connection Error: ' . $e->getMessage();
 		}
+		return $this->conn;
 	}
 }
-
